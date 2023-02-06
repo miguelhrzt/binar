@@ -1,0 +1,149 @@
+{
+    "openapi": "3.0.3",
+    "info":{ 
+        "title":"Binar Challenge Gold",
+        "version":"1.0.0",
+        "description": "Challenge",
+        "license": {
+            "name": "APACHE 2.0",
+            "url": "htpps://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+
+
+
+
+    "servers":[
+        {
+            "description": "Binar Challenge Gold",
+            "url": "/"
+         }
+
+    ],
+    "paths":{
+        "/":{
+            "get":{
+                "summary": "Welcome Page",
+                "description": "Homepage",
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+
+        "/tweet":{
+            "get":{
+                "summary": "Tweet Lists",
+                "description": "List of Tweets",
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            },
+            "post":{
+                "summary": "Post a text",
+                "description": "Post a text file to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "text":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/tweet/csv":{
+            "post":{
+                "summary": "Post a csv file",
+                "description": "Post a csv file to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "base64"
+                                    }
+                                }
+   
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        }
+
+    }
+}
